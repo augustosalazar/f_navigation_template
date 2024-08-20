@@ -27,6 +27,9 @@ class MyApp extends StatelessWidget {
       ),
       themeMode: ThemeMode.light,
       //todo: Implement name routing (initialRoute and getPages parameters)
+      // remove the next line
+      home: Scaffold(body:Center(child: Text('It works!'))), // remove this
+      // remove the last line
     );
   }
 }
