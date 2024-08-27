@@ -23,7 +23,7 @@ class _Page3AState extends State<Page3A> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            const Text('Botton Sheet modal.'),
+            const Text('Bottom Sheet modal.'),
             const SizedBox(height: 20),
             Text(currentSelection, key: const Key('currentSelection')),
             const SizedBox(height: 20),
