@@ -4,14 +4,14 @@ import 'package:get/get.dart';
 import '../widgets/responsive_widget.dart';
 
 class Page3B extends StatelessWidget {
-  Page3B({super.key});
-  final String? name = Get.parameters['name'];
+  const Page3B({super.key});
+
   @override
   Widget build(BuildContext context) {
     return ResponsiveContainer(
       child: Scaffold(
         appBar: AppBar(
-          title: Text('$name Option B'),
+          title: Text('Option B'),
         ),
         body: Center(
             child: Padding(

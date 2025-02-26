@@ -11,15 +11,15 @@ class Page3A extends StatefulWidget {
 }
 
 class _Page3AState extends State<Page3A> {
-  final String? name = Get.parameters['name'];
-
-  String currentSelection = 'Give me candy';
+  //todo:  should be 'Give me candy' or 'No candy for me'
+  String currentSelection =
+      '...'; // should be 'Give me candy' or 'No candy for me'
 
   @override
   Widget build(BuildContext context) {
     return ResponsiveContainer(
       child: Scaffold(
-        appBar: AppBar(title: Text('$name Option A'), key: const Key('appBar')),
+        appBar: AppBar(title: Text('Option A'), key: const Key('appBar')),
         body: Center(
             child: Padding(
           padding: const EdgeInsets.all(8.0),
@@ -40,9 +40,7 @@ class _Page3AState extends State<Page3A> {
                             title: const Text('I like candy'),
                             key: const Key('likeCandyTile'),
                             onTap: () {
-                              setState(() {
-                                currentSelection = 'Give me candy';
-                              });
+                              //todo: Implement logic to change the currentSelection to 'Give me candy'
                               Get.back();
                             }),
                         ListTile(
@@ -50,9 +48,7 @@ class _Page3AState extends State<Page3A> {
                           leading: const Icon(Icons.close),
                           title: const Text('I don´t like candy'),
                           onTap: () {
-                            setState(() {
-                              currentSelection = 'No, no candy for me';
-                            });
+                            //todo: Implement logic to change the currentSelection to 'No candy for me'
                             Get.back();
                           },
                         ),

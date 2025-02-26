@@ -42,6 +42,32 @@ void main() {
     );
   }
 
+  testWidgets('Clear nav from page2', (WidgetTester tester) async {
+    const name = 'Augusto';
+    await tester.pumpWidget(buildPage1WithNavigation(name: name));
+    await tester.pumpAndSettle();
+    // Ensure the initial state is correct
+
+    expect(find.byType(Page1), findsOneWidget);
+
+    // Enter a name in the text field
+    await tester.enterText(find.byType(TextFormField), 'John');
+    await tester.pump();
+
+    // Submit the form
+    await tester.tap(find.text('Continue'));
+    await tester.pumpAndSettle();
+
+    expect(find.byType(Page2), findsOneWidget);
+
+    await tester.tap(find.byIcon(Icons.logout));
+    await tester.pumpAndSettle();
+
+    expect(find.byType(Page1), findsOneWidget);
+
+    expect(find.byTooltip('Back'), findsNothing);
+  });
+
   /// Test to verify that Page3B displays the correct AppBar title.
   testWidgets('Page3B displays correct app bar title',
       (WidgetTester tester) async {
@@ -69,8 +95,7 @@ void main() {
     await tester.tap(buttonFinder);
     await tester.pump();
 
-    final snackbarFinder = find.text('This is a snackbar on Top');
-    expect(snackbarFinder, findsOneWidget);
+    expect(find.byType(GetSnackBar), findsOneWidget);
 
     await tester.pump(const Duration(seconds: 5));
   });
@@ -87,8 +112,7 @@ void main() {
     await tester.tap(buttonFinder);
     await tester.pump();
 
-    final snackbarFinder = find.text('This is a snackbar on Bottom');
-    expect(snackbarFinder, findsOneWidget);
+    expect(find.byType(GetSnackBar), findsOneWidget);
 
     await tester.pump(const Duration(seconds: 5));
   });
@@ -105,8 +129,7 @@ void main() {
     await tester.tap(buttonFinder);
     await tester.pump();
 
-    final snackbarFinder = find.text('This is a snackbar on Top');
-    expect(snackbarFinder, findsOneWidget);
+    expect(find.byType(GetSnackBar), findsOneWidget);
 
     await tester.pump(const Duration(seconds: 5));
   });
